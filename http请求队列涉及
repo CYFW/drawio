@@ -1,25 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2022-02-10T12:38:06.127Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43" etag="tDlEIp48r-G2Y7ymgSVG" version="16.5.5" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-10T13:06:11.333Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43" etag="TeMSKH_fEl0hzrS27VmA" version="16.5.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1810" dy="543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-1" value="requestQueue&#xa;&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="90" y="220" width="800" height="440" as="geometry">
+          <mxGeometry x="90" y="220" width="620" height="380" as="geometry">
             <mxRectangle x="90" y="220" width="100" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-2" value="- queue: 请求队列&#xa;- instance : 单例&#xa;- isWorking: 是否有日志请求在发送" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;rounded=1;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
-          <mxGeometry y="30" width="800" height="70" as="geometry" />
+          <mxGeometry y="30" width="620" height="70" as="geometry" />
         </mxCell>
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
-          <mxGeometry y="100" width="800" height="8" as="geometry" />
+          <mxGeometry y="100" width="620" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-4" value="+ constructor(request:  ajax请求引用): 构造函数&#xa; &#xa;+ request({opts, isLog}): 新增请求  &#xa;    isLog判断是否是日志&#xa;    不是日志：return request(opts)，&#xa;    是日志： 返回 new Promise((resolved, reject) =&gt; {enQuueue()})&#xa;- enQueue(resolved, reject, request)：添加一个新请求入队列&#xa;&#xa;- next()&#xa;    &#xa;&#xa;- deQueue(request): 请求完成、失败、超时出队列，current--&#xa;&#xa;- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
-          <mxGeometry y="108" width="800" height="332" as="geometry" />
-        </mxCell>
-        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-18" value="request(opts) {&lt;br&gt;return new wrap(wx.request())&lt;br&gt;}" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="460" y="140" width="230" height="60" as="geometry" />
+        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-4" value="+ constructor(request:  ajax请求引用): 构造函数&#xa; &#xa;+ request({opts, isLog}): 新增请求  &#xa;    isLog判断是否是日志&#xa;    不是日志：return request(opts)，&#xa;    是日志： 返回 new Promise((resolved, reject) =&gt; {enQuueue(() =&gt; {request(opts)});  send(resolved, reject&#xa;)};   )&#xa;- enQueue(resolved, reject, request)：添加一个新请求入队列&#xa;&#xa;- send(resolved, reject): 合并队列中的请求发送&#xa;    判断是否有日志在发送&#xa;    没有：sendMergeRequest(resolved, reject)&#xa;    有：return&#xa;)&#xa;&#xa;- deQueue(request): 请求完成、失败、超时出队列，current--&#xa;&#xa;- sendMergeRequest(resolved, reject): 发送合并队列中的请求, isWorking = true; 成功/失败isWorking = false" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
+          <mxGeometry y="108" width="620" height="272" as="geometry" />
         </mxCell>
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="M5ZQnwzZUYqFu1_TzXtQ-19" target="M5ZQnwzZUYqFu1_TzXtQ-27" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -114,13 +111,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-1" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-190" y="1140" width="100" height="100" as="geometry" />
+          <mxGeometry x="290" y="630" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ieiU4n7Dc1ofeU1LPwCA-2" target="ieiU4n7Dc1ofeU1LPwCA-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-2" value="发起请求" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-200" y="1310" width="120" height="60" as="geometry" />
+          <mxGeometry x="280" y="800" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ieiU4n7Dc1ofeU1LPwCA-3" target="ieiU4n7Dc1ofeU1LPwCA-5">
           <mxGeometry relative="1" as="geometry" />
@@ -139,31 +136,31 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-3" value="低等级&lt;br&gt;日志请求" style="rhombus;whiteSpace=wrap;html=1;rounded=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-180" y="1440" width="80" height="80" as="geometry" />
+          <mxGeometry x="300" y="930" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ieiU4n7Dc1ofeU1LPwCA-5" target="ieiU4n7Dc1ofeU1LPwCA-21">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-140" y="1720" as="targetPoint" />
+            <mxPoint x="340" y="1210" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-5" value="日志请求入队列" style="whiteSpace=wrap;html=1;rounded=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-200" y="1610" width="120" height="60" as="geometry" />
+          <mxGeometry x="280" y="1100" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-7" value="正常请求，超时60s" style="whiteSpace=wrap;html=1;rounded=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry y="1450" width="120" height="60" as="geometry" />
+          <mxGeometry x="480" y="940" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-17" value="node分离日志&lt;br&gt;请求服务端记录日志" style="whiteSpace=wrap;html=1;rounded=1;strokeWidth=2;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="160" y="1734" width="120" height="60" as="geometry" />
+          <mxGeometry x="640" y="1224" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ieiU4n7Dc1ofeU1LPwCA-20" target="ieiU4n7Dc1ofeU1LPwCA-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-20" value="合并队列中的请求发送" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-30" y="1734" width="120" height="60" as="geometry" />
+          <mxGeometry x="450" y="1224" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ieiU4n7Dc1ofeU1LPwCA-21" target="ieiU4n7Dc1ofeU1LPwCA-24">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-140" y="1894" as="targetPoint" />
+            <mxPoint x="340" y="1384" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-27" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ieiU4n7Dc1ofeU1LPwCA-23">
@@ -180,10 +177,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-21" value="日志正在发送" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-180" y="1724" width="80" height="80" as="geometry" />
+          <mxGeometry x="300" y="1214" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="ieiU4n7Dc1ofeU1LPwCA-24" value="end" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-180" y="1860" width="80" height="80" as="geometry" />
+          <mxGeometry x="300" y="1350" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
