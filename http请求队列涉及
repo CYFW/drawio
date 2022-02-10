@@ -1,28 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2022-02-10T09:05:16.376Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43" etag="1H4zlpCytYXG-fLgW_2B" version="16.5.5" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-10T12:38:06.127Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43" etag="tDlEIp48r-G2Y7ymgSVG" version="16.5.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2505" dy="926" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1810" dy="543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-1" value="requestQueue&#xa;&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="90" y="220" width="690" height="510" as="geometry">
+          <mxGeometry x="90" y="220" width="800" height="440" as="geometry">
             <mxRectangle x="90" y="220" width="100" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-2" value="- limit: 队列数量限制， 默认4，端不同，需要区分么？&#xa;- queue: 请求队列，发起请求的request都先排队入队列&#xa;- itemFormat：入队列的请求格式&#xa;      request: &#39;&#39;,&#xa;      requestLevel: 请求等级，默认1，1级最高。用于请求入队列排队，高等级会插队&#xa;      status： &#39;waiting, woriking, resolved&#39;&#xa;- instance : 单例&#xa;- current: 当前正在执行的队列数目&#xa;- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;rounded=1;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
-          <mxGeometry y="30" width="690" height="150" as="geometry" />
+        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-2" value="- queue: 请求队列&#xa;- instance : 单例&#xa;- isWorking: 是否有日志请求在发送" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;rounded=1;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
+          <mxGeometry y="30" width="800" height="70" as="geometry" />
         </mxCell>
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
-          <mxGeometry y="180" width="690" height="8" as="geometry" />
+          <mxGeometry y="100" width="800" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-4" value="+ constructor(request， level): 类初始化，入队列&#xa;    request：ajax请求引用 &#xa;    requestLevel：请求等级&#xa;    enQueue()&#xa;    return check() =&gt; promise&#xa;    &#xa;- enQueue(request, level): 添加一个新请求入队列&#xa;    1. 按照请求等级排队入队列&#xa;     2. 如果队列满了： &#xa;    3. &#xa;&#xa;- check: 请求排队执行&#xa;    1. 队列满了，不执行&#xa;    2. 队列不满，执行current++&#xa;    3. 返回一个&#xa;&#xa;- deQueue(request): 请求完成、失败、超时出队列，current--&#xa;&#xa;- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
-          <mxGeometry y="188" width="690" height="322" as="geometry" />
-        </mxCell>
-        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="M5ZQnwzZUYqFu1_TzXtQ-12" target="M5ZQnwzZUYqFu1_TzXtQ-1" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-12" value="&lt;span style=&quot;font-weight: 700&quot;&gt;1、尽可能保证所有请求都按顺序全部执行完成&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: 700&quot;&gt;2、请求出队列的唯一条件是请求成功、失败或超时&lt;br&gt;3、限制并发请求数量&lt;/span&gt;&lt;br style=&quot;padding: 0px ; margin: 0px ; font-weight: 700&quot;&gt;&lt;span style=&quot;font-weight: 700&quot;&gt;4、高优先级请求能插队优先执行&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-110" y="110" width="320" height="90" as="geometry" />
+        <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-4" value="+ constructor(request:  ajax请求引用): 构造函数&#xa; &#xa;+ request({opts, isLog}): 新增请求  &#xa;    isLog判断是否是日志&#xa;    不是日志：return request(opts)，&#xa;    是日志： 返回 new Promise((resolved, reject) =&gt; {enQuueue()})&#xa;- enQueue(resolved, reject, request)：添加一个新请求入队列&#xa;&#xa;- next()&#xa;    &#xa;&#xa;- deQueue(request): 请求完成、失败、超时出队列，current--&#xa;&#xa;- " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="M5ZQnwzZUYqFu1_TzXtQ-1" vertex="1">
+          <mxGeometry y="108" width="800" height="332" as="geometry" />
         </mxCell>
         <mxCell id="M5ZQnwzZUYqFu1_TzXtQ-18" value="request(opts) {&lt;br&gt;return new wrap(wx.request())&lt;br&gt;}" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="460" y="140" width="230" height="60" as="geometry" />
