@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-04-13T13:11:50.129Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36 Edg/100.0.1185.39" etag="YVokraqOcrmZFDdiWQ0-" version="17.1.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-14T01:44:18.367Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36 Edg/100.0.1185.39" etag="bgSPzgsWwmqf-RqDKWn6" version="17.1.3" type="github">
   <diagram name="Page-1" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
-    <mxGraphModel dx="3126" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="3483" dy="981" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -11,31 +11,31 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-2" value="HDF-Captcha" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="-890" y="360" width="930" height="620" as="geometry" />
+          <mxGeometry x="-1080" y="410" width="860" height="520" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-3" value="+ demotionConfig: {&#xa;    + geetestExperis: 请求极验失败时间，默认3s&#xa;    + watermarkTimeout： 请求水印接口超时时间,默认10s&#xa;    + backUpMode: dialog/custom: 默认弹窗形式出水印，自定义需要调用getWatermark，verify验证水印&#xa;} : needDemotion为true时生效，水印配置&#xa;+ needDemotion: true: 极验获取失败是否需要降级为水印，默认true&#xa;+ mode: geetest/watermark: 默认验证方式&#xa;+onSuccesss(): 行为验证成功回调，返回二次验证参数&#xa;+ onError(): 验证错误&#xa;+ onClose(): 用户关闭验证弹窗&#xa;&#xa;- geetestVerify: 极验实例&#xa;- watermarkVerify：水印实例&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-2">
-          <mxGeometry y="26" width="930" height="364" as="geometry" />
+          <mxGeometry y="26" width="860" height="364" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-2">
-          <mxGeometry y="390" width="930" height="8" as="geometry" />
+          <mxGeometry y="390" width="860" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="y2ISrQt28wzneB1zYCyP-5" value="+ verify(type)：geetest/wartermark 校验验证是否通过&#xa;+ getWatermark: 在水印模式下获取水印&#xa;- switchVerifyWay： 切换验证方式，降级使用&#xa;- getVerifiableWay: 获取验证方式" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-2">
-          <mxGeometry y="398" width="930" height="222" as="geometry" />
+        <mxCell id="y2ISrQt28wzneB1zYCyP-5" value="+ verify(type)：geetest/wartermark 校验验证是否通过&#xa;+ getWatermark: 在水印模式下获取水印&#xa;- switchVerifyWay： 切换验证方式，降级使用&#xa;- getVerifiableWay: 获取验证方式，服务端控制" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-2">
+          <mxGeometry y="398" width="860" height="122" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-6" value="Jiyan" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=19;" vertex="1" parent="1">
-          <mxGeometry x="170" y="340" width="300" height="140" as="geometry" />
+          <mxGeometry x="170" y="340" width="420" height="190" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-7" value="+ verifyInfo:极验初始化参数" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-6">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-6">
-          <mxGeometry y="52" width="300" height="8" as="geometry" />
+          <mxGeometry y="52" width="420" height="8" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-9" value="+ initGeetest(type):初始化极验&#xa;+ verify：ready时换起验证弹窗&#xa;+ getValidate： 获取二次验证参数" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-6">
-          <mxGeometry y="60" width="300" height="80" as="geometry" />
+          <mxGeometry y="60" width="420" height="130" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-10" value="watermark" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="160" y="720" width="410" height="238" as="geometry" />
+          <mxGeometry x="170" y="600" width="410" height="238" as="geometry" />
         </mxCell>
         <mxCell id="y2ISrQt28wzneB1zYCyP-11" value="+mtoken: 水印token&#xa;+ code: 验证码" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-10">
           <mxGeometry y="26" width="410" height="94" as="geometry" />
@@ -46,10 +46,22 @@
         <mxCell id="y2ISrQt28wzneB1zYCyP-13" value="+ getRegisterVerifyCode(type):获取水印验证码&#xa;+ verifyCode: 校验水印验证码" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-10">
           <mxGeometry y="128" width="410" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="y2ISrQt28wzneB1zYCyP-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=18;" edge="1" parent="1" source="y2ISrQt28wzneB1zYCyP-9" target="y2ISrQt28wzneB1zYCyP-3">
+        <mxCell id="y2ISrQt28wzneB1zYCyP-16" value="Observer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="-130" y="550" width="160" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="y2ISrQt28wzneB1zYCyP-18" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-16">
+          <mxGeometry y="26" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y2ISrQt28wzneB1zYCyP-19" value="+ on()&#xa;+ emit()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="y2ISrQt28wzneB1zYCyP-16">
+          <mxGeometry y="34" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="y2ISrQt28wzneB1zYCyP-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=18;" edge="1" parent="1" source="y2ISrQt28wzneB1zYCyP-9" target="y2ISrQt28wzneB1zYCyP-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="y2ISrQt28wzneB1zYCyP-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.001;entryY=0.14;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=18;" edge="1" parent="1" source="y2ISrQt28wzneB1zYCyP-13" target="y2ISrQt28wzneB1zYCyP-5">
+        <mxCell id="y2ISrQt28wzneB1zYCyP-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=18;" edge="1" parent="1" source="y2ISrQt28wzneB1zYCyP-11" target="y2ISrQt28wzneB1zYCyP-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y2ISrQt28wzneB1zYCyP-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=18;" edge="1" parent="1" source="y2ISrQt28wzneB1zYCyP-19" target="y2ISrQt28wzneB1zYCyP-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
